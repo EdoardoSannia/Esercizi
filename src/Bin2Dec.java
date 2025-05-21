@@ -1,16 +1,29 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Bin2Dec {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        int[] array = new int[8];
 
         System.out.println("Inserisci numeri binari, sino a 8: ");
         String s = scanner.nextLine();
-        if (s.length() > 8 || !(s.contains("1")) || !(s.contains("0"))) {
+//      ^ inizio stringa, [] indichi un carattere, {} la quantità, "$" fine stringa
+        if (!s.matches("^[01]{1,8}$")) {
             System.out.println("Puoi Inserire solo 8 numeri e devono essere solo 1 e 0");
         } else {
+            // METODO CORRETTO
+            int res = 0;
+            int i = 0;
+            for (char c : s.toCharArray()) {
+                if (c == '1') {
+                    res += (Math.pow(2, i));
+                }
+                i++;
+            }
+            System.out.println(res);
+
+            /*
             String binaryString = s;
 
 //          METODO CON LA CONVERSIONE DA STRING A OGNI CARATTERE IN ASCII, POI DA ASCII A VALORE NUMERICO
@@ -25,8 +38,9 @@ public class Bin2Dec {
             for (int num : numericValue) {
                 decimalValue = decimalValue * 2 + num;
             }
+            System.out.println("Il valore decimale è: " + decimalValue + "\n");
+            */
 
-            System.out.println("Il valore decimaele è: " + decimalValue + "\n");
 
             /*
             11110000
