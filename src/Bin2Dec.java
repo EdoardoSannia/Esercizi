@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Bin2Dec {
@@ -22,6 +21,8 @@ public class Bin2Dec {
                 i++;
             }
             System.out.println(res);
+
+
 
             /*
             String binaryString = s;
